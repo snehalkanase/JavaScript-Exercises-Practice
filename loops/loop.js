@@ -1,4 +1,5 @@
 // 1) ============================== =====================================For loop with Break statement==============================
+//Search for Contact no from array object
 const input = document.querySelector("input");
 const btn = document.querySelector("button");
 const para = document.querySelector("p");
@@ -413,3 +414,15 @@ for (let i = 0; i < people.length; i++) {
   list.textContent = people[i];
   display.appendChild(list);
 }
+// output ptime no
+console.log('prime: 0-10')
+nextPrime :
+for(let i = 2;i<= 10;i++){
+  for(let j= 2; j< i; j++){
+    if(i %j== 0){
+      continue nextPrime;
+    }
+  }
+  console.log(i);
+}
+console.log('stop')
