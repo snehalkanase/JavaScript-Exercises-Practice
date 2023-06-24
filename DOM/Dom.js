@@ -70,5 +70,51 @@ link.textContent = "Google";
 document.body.appendChild(link);
 
 //========== #8 split each new sentence onto to a seperate line in the paragraph
-const para2 = document.getElementById('para2');
-para2.innerHTML = para2.innerHTML.split(/\.[^\.|<]/).join(".</p><p>")+ '</p>';
+const para2 = document.getElementById("para2");
+para2.innerHTML = para2.innerHTML.split(/\.[^\.|<]/).join(".</p><p>") + "</p>";
+
+//=========== #9 count the number of words and display count after heading
+const wordCount = para2.innerHTML.split("").length;
+const wordCountElement = document.createElement("div");
+wordCountElement.textContent = `${wordCount} Words`;
+document.body.insertBefore(wordCountElement, para2);
+
+//=============  #10 Replace all ? with !!!
+Array.from(document.querySelectorAll("#para3")).forEach((p) => {
+  p.innerHTML = p.innerHTML.replace(/\?/g, "!!!!");
+});
+
+//==================== #11 Create a page welcome message :================
+const input = document.createElement("input");
+input.type = "text";
+input.placeholder = "Enter name:";
+input.textContent = "Enter name";
+
+const head = document.createElement("h3");
+head.textContent = " #11 Create a page welcome message :";
+
+const click = document.createElement("button");
+click.classList.add("click");
+click.textContent = "Click";
+
+document.body.appendChild(head);
+document.body.appendChild(input);
+document.body.appendChild(click);
+
+const place = document.createElement("p");
+place.classList.add("place");
+document.body.appendChild(place);
+
+click.addEventListener("click", () => {
+  const name = input.value;
+  input.value = "";
+  place.textContent = "";
+  if (name.length > 2) {
+    place.textContent = `Welcome to the site ${name}.`;
+    place.style.color = "green";
+  } else if (name.length < 3) {
+    place.textContent = "name should be greater than 3";
+    place.style.color = "red";
+  }
+});
+
